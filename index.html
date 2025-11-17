@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINE 打卡系統 - 員工使用說明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", "PingFang TC", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* 頂部橫幅 */
+        .header {
+            background: linear-gradient(135deg, #06C755 0%, #00B900 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .header .subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        /* 主要內容區 */
+        .content {
+            padding: 40px 30px;
+        }
+
+        /* 章節標題 */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #06C755;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #06C755;
+            font-weight: bold;
+        }
+
+        .subsection-title {
+            font-size: 22px;
+            color: #333;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .subsection-title::before {
+            content: "▶";
+            color: #06C755;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        /* 步驟卡片 */
+        .step-card {
+            background: #f8f9fa;
+            border-left: 4px solid #06C755;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .step-card h4 {
+            color: #06C755;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .step-card ol {
+            margin-left: 20px;
+        }
+
+        .step-card ol li {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        /* 程式碼區塊 */
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: 15px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        .code-inline {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: 14px;
+        }
+
+        /* 範例區塊 */
+        .example-block {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .example-block strong {
+            color: #856404;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* 注意事項 */
+        .notice-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .notice-box ul {
+            margin-left: 20px;
+        }
+
+        .notice-box li {
+            margin: 8px 0;
+        }
+
+        /* 警告框 */
+        .warning-box {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        /* FAQ 區塊 */
+        .faq-item {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: #06C755;
+            box-shadow: 0 2px 8px rgba(6, 199, 85, 0.2);
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* 技巧卡片 */
+        .tip-card {
+            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .tip-card h4 {
+            color: #f57c00;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* 指令表格 */
+        .command-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .command-table th {
+            background: #06C755;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .command-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .command-table tr:hover {
+            background: #f5f5f5;
+        }
+
+        /* 聯絡資訊 */
+        .contact-box {
+            background: linear-gradient(135deg, #06C755 0%, #00B900 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .contact-box h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        /* 重要提醒清單 */
+        .reminder-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .reminder-list li {
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .reminder-list li.do {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+        }
+
+        .reminder-list li.dont {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+        }
+
+        /* 頁尾 */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        /* 圖示 */
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .subsection-title {
+                font-size: 20px;
+            }
+        }
+
+        /* 列印樣式 */
+        @media print {
+            .container {
+                box-shadow: none;
+            }
+            
+            .header {
+                background: #06C755 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .faq-item, .tip-card {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 頂部橫幅 -->
+        <div class="header">
+            <h1><span class="emoji">📱</span>LINE 打卡系統</h1>
+            <div class="subtitle">員工使用說明手冊</div>
+        </div>
+
+        <!-- 主要內容 -->
+        <div class="content">
+            
+            <!-- 第一次使用 -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">📱</span>第一次使用（只需要做一次）</h2>
+                
+                <div class="step-card">
+                    <h4>步驟 1：加入打卡機器人</h4>
+                    <ol>
+                        <li>掃描公司提供的 QR Code</li>
+                        <li>或搜尋 LINE ID：<span class="code-inline">@738pzybv</span></li>
+                        <li>點擊「加入」</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4>步驟 2：註冊</h4>
+                    <p>發送訊息：</p>
+                    <div class="code-block">註冊 你的姓名</div>
+                    
+                    <div class="example-block">
+                        <strong>範例：</strong>
+                        <div class="code-block">註冊 王小明</div>
+                    </div>
+                    
+                    <p>收到「註冊成功」訊息後，就可以開始使用了！</p>
+                </div>
+            </div>
+
+            <!-- 每天打卡 -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">🕐</span>每天打卡</h2>
+                
+                <!-- 上班打卡 -->
+                <h3 class="subsection-title"><span class="emoji">⏰</span>上班打卡</h3>
+                
+                <div class="step-card">
+                    <h4>步驟：</h4>
+                    <ol>
+                        <li>到公司後，打開 LINE</li>
+                        <li>找到「公司打卡系統」聊天</li>
+                        <li>發送：<span class="code-inline">上班</span></li>
+                        <li>系統會要求分享位置</li>
+                        <li>點擊 LINE 下方的「<strong>+</strong>」</li>
+                        <li>選擇「<strong>位置資訊</strong>」</li>
+                        <li>點擊「<strong>目前位置</strong>」</li>
+                        <li>點擊「<strong>傳送</strong>」</li>
+                        <li>完成！</li>
+                    </ol>
+                </div>
+
+                <div class="notice-box">
+                    <strong><span class="emoji">⚠️</span>注意事項：</strong>
+                    <ul>
+                        <li>⏰ 必須在公司 100 公尺範圍內才能打卡</li>
+                        <li>⏰ 08:00 前打卡：準時</li>
+                        <li>⏰ 08:00 後打卡：會顯示遲到幾分鐘</li>
+                        <li>⏰ 每天只能打一次上班卡</li>
+                    </ul>
+                </div>
+
+                <!-- 下班打卡 -->
+                <h3 class="subsection-title"><span class="emoji">🏠</span>下班打卡</h3>
+                
+                <p>步驟完全相同，只是發送：<span class="code-inline">下班</span></p>
+
+                <div class="notice-box">
+                    <strong><span class="emoji">⚠️</span>注意事項：</strong>
+                    <ul>
+                        <li>⏰ 17:00 後打卡：正常下班</li>
+                        <li>⏰ 17:00 前打卡：會顯示早退幾分鐘</li>
+                        <li>⏰ 必須先有上班記錄才能打下班卡</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 請假申請 -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">🏖️</span>請假申請</h2>
+                
+                <div class="step-card">
+                    <h4>步驟 1：查看假別</h4>
+                    <p>發送：<span class="code-inline">請假</span></p>
+                    
+                    <p>系統會顯示：</p>
+                    <div class="code-block">📋 請假類別：
+
+1. 特休假
+2. 病假
+3. 事假
+4. 婚假
+5. 喪假
+6. 產假
+7. 陪產假
+8. 生理假
+
+請依照以下格式申請：
+假別代碼 開始日期 結束日期
+
+範例：
+1 2025-11-15 2025-11-17
+(表示申請特休假，11/15-11/17)</div>
+                </div>
+
+                <div class="step-card">
+                    <h4>步驟 2：申請請假</h4>
+                    <p>發送格式：<span class="code-inline">假別代碼 開始日期 結束日期</span></p>
+                    
+                    <div class="example-block">
+                        <strong>範例 1：請特休假 3 天（11/20-11/22）</strong>
+                        <div class="code-block">1 2025-11-20 2025-11-22</div>
+                        
+                        <strong>範例 2：請病假 1 天（11/15）</strong>
+                        <div class="code-block">2 2025-11-15 2025-11-15</div>
+                        
+                        <strong>範例 3：請事假半天</strong>
+                        <p>建議先發訊息說明，系統會記錄</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 查詢記錄 -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">📊</span>查詢記錄</h2>
+                
+                <h3 class="subsection-title">查詢本月出勤</h3>
+                <p>發送：<span class="code-inline">查詢</span></p>
+                
+                <p>系統會顯示：</p>
+                <div class="code-block">📊 2025-11 打卡記錄
+
+出勤天數：15天
+總工時：120.5小時
+遲到次數：2次
+早退次數：0次
+
+最近5筆記錄：
+
+2025-11-11
+上班：08:05:23 下班：17:10:45
+遲到5分鐘
+
+2025-11-10
+上班：07:58:12 下班：17:05:30
+
+...</div>
+            </div>
+
+            <!-- 常見問題 -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">🆘</span>常見問題</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q1: 忘記打卡怎麼辦？</div>
+                    <div class="faq-answer">
+                        <strong>A:</strong>
+                        <ul>
+                            <li>系統會在 08:30 自動提醒你</li>
+                            <li>如果已經超過時間，請聯絡主管補登</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q2: 打卡失敗，顯示「超出範圍」？</div>
+                    <div class="faq-answer">
+                        <strong>A:</strong>
+                        <ul>
+                            <li>確認你的手機 GPS 已開啟</li>
+                            <li>確認你在公司 100 公尺範圍內</li>
+                            <li>可能在室內 GPS 訊號不良，建議到窗邊或戶外</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q3: 手機沒電或忘記帶手機怎麼辦？</div>
+                    <div class="faq-answer">
+                        <strong>A:</strong>
+                        <ul>
+                            <li>請立即告知主管</li>
+                            <li>主管會協助手動補登記錄</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q4: 我打錯了，想取消打卡怎麼辦？</div>
+                    <div class="faq-answer">
+                        <strong>A:</strong>
+                        <ul>
+                            <li>無法自行取消</li>
+                            <li>請聯絡主管在系統中修改</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q5: 可以幫同事代打卡嗎？</div>
+                    <div class="faq-answer">
+                        <strong>A:</strong>
+                        <ul>
+                            <li><strong style="color: #f44336;">不可以！</strong></li>
+                            <li>系統有 GPS 記錄</li>
+                            <li>代打卡違反公司規定</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q6: 我的個資會被追蹤嗎？</div>
+                    <div class="faq-answer">
+                        <strong>A:</strong>
+                        <ul>
+                            <li>不會</li>
+                            <li>系統只在你打卡時記錄位置</li>
+                            <li>平時不會追蹤你的行蹤</li>
+                            <li>你隨時可以查詢自己的記錄</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q7: 出差或外出工作怎麼打卡？</div>
+                    <div class="faq-answer">
+                        <strong>A:</strong>
+                        <ul>
+                            <li>請事先告知主管</li>
+                            <li>主管會設定特殊處理</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q8: 系統會記錄我的 LINE 對話嗎？</div>
+                    <div class="faq-answer">
+                        <strong>A:</strong>
+                        <ul>
+                            <li>不會</li>
+                            <li>只記錄打卡相關訊息</li>
+                            <li>你的私人對話完全不受影響</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 使用技巧 -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">💡</span>使用小技巧</h2>
+                
+                <div class="tip-card">
+                    <h4><span class="emoji">💡</span>技巧 1：設定提醒</h4>
+                    <ul>
+                        <li>可以在手機行事曆設定每天 07:50 提醒</li>
+                        <li>避免忘記打卡</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <h4><span class="emoji">💡</span>技巧 2：快速打卡</h4>
+                    <ul>
+                        <li>可以將「公司打卡系統」聊天「釘選」在 LINE 最上方</li>
+                        <li>打開 LINE 就能立刻看到，更快速</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <h4><span class="emoji">💡</span>技巧 3：定期查詢</h4>
+                    <ul>
+                        <li>建議每週五查詢一次記錄</li>
+                        <li>確認沒有遺漏</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <h4><span class="emoji">💡</span>技巧 4：截圖保存</h4>
+                    <ul>
+                        <li>重要的打卡記錄可以截圖保存</li>
+                        <li>作為個人備份</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 需要協助 -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">📞</span>需要協助？</h2>
+                
+                <div class="contact-box">
+                    <h3>聯絡資訊</h3>
+                    <p><strong>系統管理員：</strong>[管理員姓名]</p>
+                    <p><strong>聯絡方式：</strong>[電話/LINE ID]</p>
+                    <p><strong>服務時間：</strong>週一至週五 08:00-17:00</p>
+                </div>
+
+                <h3 class="subsection-title">常見指令總整理</h3>
+                <table class="command-table">
+                    <thead>
+                        <tr>
+                            <th>指令</th>
+                            <th>說明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="code-inline">註冊 姓名</span></td>
+                            <td>第一次使用時註冊</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">上班</span></td>
+                            <td>上班打卡（需分享位置）</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">下班</span></td>
+                            <td>下班打卡（需分享位置）</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">請假</span></td>
+                            <td>查看假別和申請格式</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">查詢</span></td>
+                            <td>查看本月打卡記錄</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">說明</span></td>
+                            <td>查看系統使用說明</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 重要提醒 -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">⚠️</span>重要提醒</h2>
+                
+                <ul class="reminder-list">
+                    <li class="do">✅ 每天務必打卡，影響薪資計算</li>
+                    <li class="do">✅ 打卡時請確保 GPS 已開啟</li>
+                    <li class="do">✅ 在公司範圍內（100公尺）才能打卡</li>
+                    <li class="do">✅ 忘記打卡請立即告知主管</li>
+                    <li class="dont">❌ 不可代打卡，違者依公司規定處理</li>
+                    <li class="dont">❌ 不可造假位置資訊</li>
+                </ul>
+            </div>
+
+            <!-- 結尾 -->
+            <div style="text-align: center; padding: 30px 0; font-size: 20px;">
+                <strong>祝您使用愉快！有任何問題歡迎隨時詢問！</strong> <span class="emoji">😊</span>
+            </div>
+
+        </div>
+
+        <!-- 頁尾 -->
+        <div class="footer">
+            <p>LINE 打卡系統 © 2025</p>
+            <p>讓打卡變簡單，讓管理更輕鬆</p>
+        </div>
+    </div>
+</body>
+</html>
